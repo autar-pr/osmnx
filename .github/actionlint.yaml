@@ -1,0 +1,15 @@
+---
+# actionlint configuration
+# https://github.com/rhysd/actionlint/blob/main/docs/config.md
+self-hosted-runner:
+  labels: []
+
+# ShellCheck rules disabled inside run: blocks.
+# Each `run:` block is checked through ShellCheck; suppress noisy rules here.
+paths:
+  ".github/workflows/**/*.{yml,yaml}":
+    ignore:
+      - 'shellcheck reported issue in this script: SC1091:.+'  # Can't follow non-constant source
+      - 'shellcheck reported issue in this script: SC2086:.+'
+      - 'shellcheck reported issue in this script: SC2129:.+'
+      - 'shellcheck reported issue in this script: SC2155:.+'
